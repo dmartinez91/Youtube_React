@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import ReactPlayer from 'react-player';
+import axios from 'axios';
+import Youtube from './Youtube/Youtube'
 
 class App extends Component {
     constructor(props) {
@@ -9,14 +11,16 @@ class App extends Component {
          }
     }
     
-    
+
     
     
     render() { 
         return ( 
+
             <div>
-                <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+                {Youtube}
             </div> 
+
          );
     }
 }
