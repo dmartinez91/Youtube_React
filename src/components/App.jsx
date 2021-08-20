@@ -1,24 +1,18 @@
-import React, {Component} from 'react';
-import ReactPlayer from 'react-player';
+import React, {useState} from 'react';
 import axios from 'axios';
+import SearchBar from './SearchBar';
 
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-            displayVideo: []
-         }
-    }
+
+const App = () => {
+   const [displayVideo, setDisplayVideo] = useState('x2Bq9WGMHsI')
     
 
-    async makeGetRequest(){
+    const makeGetRequest = async (values) =>{
         try{
-            let response = await axios.get('https://www.googleapis.com/youtube/v3/search?q=dogsgsp&key=AIzaSyDPP_0jwJ7O2lH6pJKVBbNwqrs28QmH0lo&part=snippet')
-            console.log(this)
-            this.setState({
-                displayVideo: response.data
-            });
+            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${values}&key=AIzaSyDPP_0jwJ7O2lH6pJKVBbNwqrs28QmH0lo&part=snippet`)
+            console.log(response.data)
+            setDisplayVideo(response.data)
         }
         catch(ex){
             console.log(ex)
@@ -27,20 +21,21 @@ class App extends Component {
 
     
     
-    render() { 
-        return ( 
 
+        return ( 
+         
             <div>
                 <h1> Youtube Clone </h1>
                 
+                <SearchBar makeSearch = {makeGetRequest}/>
+                <br></br>
                 <iframe title='youtube-video' id="ytplayer" type="text/html" width="640" height="360"
-                src={`https://www.youtube.com/embed/${this.state.displayVideo}?autoplay=1&origin=http://example.com`}
+                src={`https://www.youtube.com/embed/${displayVideo}?autoplay=1&origin=http://example.com`}
                 frameborder="0"></iframe>
                 
             </div> 
 
          );
-    }
 }
  
 export default App;
