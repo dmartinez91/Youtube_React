@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import SearchBar from './SearchBar';
+import DisplayVideo from './DisplayVideo';
 
 
 
@@ -30,10 +31,7 @@ const App = () => {
                 
                 <SearchBar makeSearch = {makeGetRequest}/>
                 <br></br>
-                <iframe title='youtube-video' id="ytplayer" type="text/html" width="640" height="360"
-                src={`https://www.youtube.com/embed/${displayVideo}?autoplay=1&origin=http://example.com`}
-                frameborder="0"></iframe>
-                
+                <DisplayVideo showVideo = {displayVideo}/>
             </div> 
 
          );
