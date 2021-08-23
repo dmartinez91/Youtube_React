@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import DisplayVideo from './DisplayVideo';
-import RelatedVideos from './RelatedVideos';
+import DisplaySearch from './DisplaySearch';
 
 
 
@@ -40,7 +40,7 @@ const App = () => {
                 <SearchBar makeSearch = {makeGetRequest}/>
                 <br></br>
                 <DisplayVideo showVideo = {displayVideo}/>
-                <RelatedVideos showSearch = {displayVideo}/>
+                <DisplaySearch showSearch = {displayVideo}/>
                 <h1> Search Results </h1>
                 {videos.map((video) => {
                     return (<h4> Video Id: {video.id.videoId} Etag: {video.etag} </h4>)

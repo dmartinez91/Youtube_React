@@ -1,7 +1,8 @@
 import React from 'react';
+import DisplayVideo from './DisplayVideo';
 
 
-const RelatedVideos = (props) => {    
+const DisplaySearch = (props) => {    
     return ( 
         <div>
             
@@ -13,4 +14,4 @@ const RelatedVideos = (props) => {
      );
 }
  
-export default RelatedVideos;
+export default DisplaySearch;
