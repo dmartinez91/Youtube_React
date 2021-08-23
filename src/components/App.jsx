@@ -9,8 +9,9 @@ const App = () => {
     
 
     const makeGetRequest = async (values) =>{
+        console.log(values)
         try{
-            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${values}&key=AIzaSyDPP_0jwJ7O2lH6pJKVBbNwqrs28QmH0lo&part=snippet`)
+            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${values}&key=AIzaSyB1fyZlIT8V91aGqkYrRi-gq3VCgrSGcS8&part=snippet`)
             console.log(response.data)
             setDisplayVideo(response.data)
         }
@@ -19,7 +20,7 @@ const App = () => {
         }
     }
 
-    
+        
     
 
         return ( 

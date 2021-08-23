@@ -3,17 +3,17 @@ import {useForm} from './useForm';
 
 const SearchBar = (props) => {
     
-    const [values, handleChange] = useForm({search: ""})
+    const {values, handleChange, handleSubmit} = useForm(props.makeSearch)
     
     return ( 
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
             <input 
             name="search" 
             value={values.search} 
             onChange={handleChange}
             />
-            <button onClick={props.makeSearch(values)}>Search</button>
+            <button type="submit">Search</button>
             
             </form>
             
