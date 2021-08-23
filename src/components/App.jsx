@@ -28,13 +28,13 @@ const App = () => {
          
             <div>
                 <h1> Youtube Clone </h1>
-                
                 <SearchBar makeSearch = {makeGetRequest}/>
                 <br></br>
                 <DisplayVideo showVideo = {displayVideo}/>
             </div> 
+        );
+                
 
-         );
 }
  
 export default App;
