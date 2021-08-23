@@ -1,13 +1,12 @@
 import React from 'react';
 
 
-const RelatedVideos = (props) => {
+const RelatedVideos = (props) => {    
     return ( 
         <div>
             
             <ul>
-                
-                {props.showSearch.videoId}
+                {props.showSearch}
                 
             </ul>
         </div>
