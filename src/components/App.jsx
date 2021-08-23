@@ -43,7 +43,7 @@ const App = () => {
                 <DisplaySearch showSearch = {displayVideo}/>
                 <h1> Search Results </h1>
                 {videos.map((video) => {
-                    return (<h4> Video Id: {video.id.videoId} Etag: {video.etag} </h4>)
+                    return (<h4> Video Id: {video.id.videoId} Description: {video.snippet.description} </h4>)
                 })}
             </div> 
         );
