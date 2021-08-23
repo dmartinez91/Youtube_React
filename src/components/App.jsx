@@ -7,7 +7,9 @@ import RelatedVideos from './RelatedVideos';
 
 
 const App = () => {
-   const [displayVideo, setDisplayVideo] = useState('x2Bq9WGMHsI')
+   const [displayVideo, setDisplayVideo] = useState('')
+   const [displaySearch, setDisplaySearch] = useState('')
+   
     
     useEffect(() => {
         makeGetRequest();
@@ -17,28 +19,31 @@ const App = () => {
     const makeGetRequest = async (values) =>{
         console.log(values)
         try{
-            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${values}&key=AIzaSyDPP_0jwJ7O2lH6pJKVBbNwqrs28QmH0lo&part=snippet`)
+            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${values}&key=AIzaSyCDKziCzx2dBMt7o3nTQOkpU0upTpqHT_c&part=snippet`)
             console.log(response.data)
-            setDisplayVideo(response.data)
+            setDisplaySearch(response.data)
+                
+            
         }
         catch(ex){
             console.log(ex)
         }
+        
     }
 
         
-    
-
         return ( 
-         
             <div>
                 <h1> Youtube Clone </h1>
                 <SearchBar makeSearch = {makeGetRequest}/>
                 <br></br>
                 <DisplayVideo showVideo = {displayVideo}/>
-                <RelatedVideos showSearch = {displayVideo}/>
+                <RelatedVideos showSearch = {displaySearch}/>
             </div> 
         );
+    
+
+         
                 
 
 }
