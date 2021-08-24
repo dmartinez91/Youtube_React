@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 const Comments = (props) => {
     
     const [commentValue, setCommentValue] = useState("");
-    
+    const [likes, setLikes] = useState(0);
+    const [dislikes, setDislikes] = useState(0);
     
     
 
@@ -15,8 +16,8 @@ const Comments = (props) => {
         event.preventDefault();
         let newComment = {
             comments: commentValue,
-            likes: 0,
-            dislikes: 0
+            likes: likes,
+            dislikes: dislikes
         };
         props.makeComment(newComment)
     }
@@ -32,6 +33,24 @@ const Comments = (props) => {
                 onChange={handleChange}
                 />
                 <button type="submit">Comment</button>
+                
+                <button
+                onClick={() => {
+                    setLikes(c => c +1);
+                }}
+                > +
+            </button>
+                 Likes: {likes} 
+            
+            <button
+            onClick={() => {
+                setDislikes(c => c + 1);
+            }}
+            >
+            +
+                </button>
+                Dislikes: {dislikes}
+
             </form>
         </div>
     );

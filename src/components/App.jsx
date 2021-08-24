@@ -57,6 +57,8 @@ const App = () => {
                 <DisplayVideo showVideo = {displayVideo} addComment = {makePostRequest} />
                 
                 <DisplaySearch displaySearch = {videos} selectedVideoId={selectedVideoId} />
+
+               
                 
             </div> 
         );
