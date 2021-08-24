@@ -1,31 +1,34 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useState, useEffect} from 'react';
+import {ListGroup, ListGroupItem} from 'react-bootstrap'
 
+function DisplayComments() {
+    
+    const [posts, setPosts] = useState([])
 
-const DisplayComments = (props) => {
-    
-    
+    useEffect(() => {
+        axios.get('http://127.0.0.1:8000/youtube')
+        .then(res =>{
+            console.log(res)
+            setPosts(res.data)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }, [])
     
     return ( 
-        <React.Fragment>
-        <table className="table table-bordered border-primary">
-        <tr>
-            <th className="table-primary">comment</th>
-            <th className="table-primary">likes</th>
-            <th className="table-primary">dislikes</th>
+        <div>
+        <form> 
+        
+        <ListGroup>
+            {
+                posts.map(post => <ListGroupItem key={post.id}>{post.comments}</ListGroupItem>)
+            }
+        </ListGroup>
+        </form>
+        </div>
 
-        </tr>
-            {props.showCommentLikesDislikes.map(showComment => (
-                <tr key={showComment.id}>
-                    
-                    <td className="table-primary">{showComment.commentValue}</td>
-                    <td className="table-primary">{showComment.likes}</td>
-                    <td className="table-primary">{showComment.dislikes}</td>
-
-                </tr>
-                
-                ))}
-    </table>
-        </React.Fragment>
      );
 }
  

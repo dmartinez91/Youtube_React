@@ -13,7 +13,6 @@ const DisplayVideo = (props) => {
             </iframe>
 
             <Comments makeComment = {props.addComment}/>
-            <DisplayComments displayCommentsLikesDislikes = {props.showCommentLikesDislikes}/>
 
            
             

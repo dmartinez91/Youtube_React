@@ -4,6 +4,7 @@ import SearchBar from './SearchBar';
 import DisplayVideo from './DisplayVideo';
 import DisplaySearch from './DisplaySearch';
 import 'bootstrap/dist/css/bootstrap.css';
+import DisplayComments from './DisplayComments';
 
 
 
@@ -17,6 +18,7 @@ const App = () => {
     
     useEffect(() => {
         makeGetRequest();
+        
 
     }, [displayVideo]);
 
@@ -28,7 +30,7 @@ const App = () => {
             let response = require('./sampleOutput.json') 
             //let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${values}&key=AIzaSyDPP_0jwJ7O2lH6pJKVBbNwqrs28QmH0lo&part=snippet`)
             setVideos(response.items)
-            console.log(response.items)
+            //console.log(response.items)
         }
             
         catch(ex){
@@ -45,15 +47,15 @@ const App = () => {
     const makePostRequest = async (commentValue) => {
         let response = await axios.post('http://127.0.0.1:8000/youtube', commentValue);
         setComments(response.data)
-        console.log(response.data)
+        //console.log(response.data)
     }
     
 
-    const retrieveCommentRequest = async () => {
-        let response = await axios.get('http://127.0.0.1:8000/youtube');
-        setShowComment(response.data)
-        console.log(response.data)
-    }
+    // const retrieveCommentRequest = async () => {
+    //     let response = await axios.get('http://127.0.0.1:8000/youtube');
+    //     setShowComment(response.data)
+    //     console.log(response.data)
+    // }
 
         return ( 
          
@@ -61,8 +63,8 @@ const App = () => {
                 <h1> Youtube Clone </h1>
                 <SearchBar makeSearch = {makeGetRequest}/>
                 <br></br>
-                <DisplayVideo showVideo = {displayVideo} addComment = {makePostRequest} showCommentLikesDislikes = {retrieveCommentRequest} />
-                
+                <DisplayVideo showVideo = {displayVideo} addComment = {makePostRequest} />
+                <DisplayComments />
                 
                 <DisplaySearch displaySearch = {videos} selectedVideoId={selectedVideoId} />
 

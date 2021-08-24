@@ -22,6 +22,7 @@ const Comments = (props) => {
 
     return ( 
         <div>
+            {console.log(commentValue)}
             <form onSubmit={handleSubmit}>
                 <input 
                 name="comment" 
