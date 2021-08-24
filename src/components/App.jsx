@@ -13,6 +13,7 @@ const App = () => {
    const [displayVideo, setDisplayVideo] = useState('')
    const [videos, setVideos] = useState([])
    const [comments, setComments] = useState([])
+   const [showComment, setShowComment] = useState([]) 
     
     useEffect(() => {
         makeGetRequest();
@@ -48,13 +49,20 @@ const App = () => {
     }
     
 
+    const retrieveCommentRequest = async () => {
+        let response = await axios.get('http://127.0.0.1:8000/youtube');
+        setShowComment(response.data)
+        console.log(response.data)
+    }
+
         return ( 
          
             <div>
                 <h1> Youtube Clone </h1>
                 <SearchBar makeSearch = {makeGetRequest}/>
                 <br></br>
-                <DisplayVideo showVideo = {displayVideo} addComment = {makePostRequest} />
+                <DisplayVideo showVideo = {displayVideo} addComment = {makePostRequest} showCommentLikesDislikes = {retrieveCommentRequest} />
+                
                 
                 <DisplaySearch displaySearch = {videos} selectedVideoId={selectedVideoId} />
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import Comments from './Comments';
+import DisplayComments from './DisplayComments';
 
 const DisplayVideo = (props) => {
     const videoUrl = `https://www.youtube.com/embed/${props.showVideo}`
@@ -12,6 +13,7 @@ const DisplayVideo = (props) => {
             </iframe>
 
             <Comments makeComment = {props.addComment}/>
+            <DisplayComments displayCommentsLikesDislikes = {props.showCommentLikesDislikes}/>
 
            
             

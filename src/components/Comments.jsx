@@ -6,8 +6,6 @@ const Comments = (props) => {
     const [likes, setLikes] = useState(0);
     const [dislikes, setDislikes] = useState(0);
     
-    
-
     const handleChange = (event) => {
         setCommentValue(event.target.value);
     }
@@ -21,8 +19,6 @@ const Comments = (props) => {
         };
         props.makeComment(newComment)
     }
-
-    
 
     return ( 
         <div>
