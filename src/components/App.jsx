@@ -23,7 +23,7 @@ const App = () => {
         console.log(values)
         try{
             // let response = require('./sampleOutput.json') 
-            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${values}&key=AIzaSyCDKziCzx2dBMt7o3nTQOkpU0upTpqHT_c&part=snippet`)
+            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${values}&key=AIzaSyDPP_0jwJ7O2lH6pJKVBbNwqrs28QmH0lo&part=snippet`)
             setVideos(response.data.items)
             console.log(response.data.items)
         }
