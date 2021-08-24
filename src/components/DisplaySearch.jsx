@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {ListGroup} from 'react-bootstrap'
 
 
 const DisplaySearch = (props) => {    
@@ -14,18 +15,17 @@ const DisplaySearch = (props) => {
     }
 
     return ( 
-        <div>
+        <div class="d-flex align-items-end flex-column bd-highlight mb-3">
             
-            <ul>
+            <div>
             
             {showSearch.map((video) => {
-                return (<h4> Title: {video.snippet.title} <br></br> 
-                            Description: {video.snippet.description} <br></br>
+                return ( <div class="p-2 bd-highlight"> Title: {video.snippet.title} <br></br>
                             <img src={video.snippet.thumbnails.default.url} alt="img"
-                            onClick ={() => handleClick(video.id.videoId)} /> </h4>)
+                            onClick ={() => handleClick(video.id.videoId)} /> </div>)
             })}
                 
-            </ul>
+            </div>
         </div>
      );
 }

@@ -4,6 +4,7 @@ import SearchBar from './SearchBar';
 import DisplayVideo from './DisplayVideo';
 import DisplaySearch from './DisplaySearch';
 import 'bootstrap/dist/css/bootstrap.css';
+import Comments from './Comments';
 
 
 
@@ -11,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 const App = () => {
    const [displayVideo, setDisplayVideo] = useState('')
    const [videos, setVideos] = useState([])
+   const [comments, setComments] = useState([])
     
     useEffect(() => {
         makeGetRequest();
@@ -22,10 +24,10 @@ const App = () => {
     const makeGetRequest = async (values) =>{
         console.log(values)
         try{
-            // let response = require('./sampleOutput.json') 
-            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${values}&key=AIzaSyDPP_0jwJ7O2lH6pJKVBbNwqrs28QmH0lo&part=snippet`)
-            setVideos(response.data.items)
-            console.log(response.data.items)
+            let response = require('./sampleOutput.json') 
+            //let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${values}&key=AIzaSyDPP_0jwJ7O2lH6pJKVBbNwqrs28QmH0lo&part=snippet`)
+            setVideos(response.items)
+            console.log(response.items)
         }
             
         catch(ex){
@@ -37,6 +39,13 @@ const App = () => {
         // updateds statevariable and the rerenders
         setDisplayVideo(id)
     }
+
+
+    const makePostRequest = async (comment) => {
+        let response = await axios.post('http://127.0.0.1:8000/youtube', comment);
+        setComments(response.data)
+        console.log(response.data)
+    }
     
 
         return ( 
@@ -45,7 +54,8 @@ const App = () => {
                 <h1> Youtube Clone </h1>
                 <SearchBar makeSearch = {makeGetRequest}/>
                 <br></br>
-                <DisplayVideo showVideo = {displayVideo}/>
+                <DisplayVideo showVideo = {displayVideo} addComment = {makePostRequest} />
+                
                 <DisplaySearch displaySearch = {videos} selectedVideoId={selectedVideoId} />
                 
             </div> 
