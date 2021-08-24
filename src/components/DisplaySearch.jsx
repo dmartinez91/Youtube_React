@@ -1,13 +1,22 @@
-import React from 'react';
-
+import React, {useState, useEffect} from 'react';
 
 
 const DisplaySearch = (props) => {    
+    const [showSearch, setShowSearch] = useState([]);
+
+    useEffect(() => {
+        // parse out the info before adding it to state
+        setShowSearch(props.displaySearch)
+    },[props.displaySearch])
+
     return ( 
         <div>
             
             <ul>
-                {props.showSearch}
+            
+            {props.displaySearch.map((video) => {
+                return (<h4> Video Id: {video.id.videoId} Description: {video.snippet.description} <img src={video.snippet.thumbnails.default.url} alt="img" /> </h4>)
+            })}
                 
             </ul>
         </div>

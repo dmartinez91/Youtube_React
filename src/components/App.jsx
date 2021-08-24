@@ -16,6 +16,7 @@ const App = () => {
     }, []);
 
 
+
     const makeGetRequest = async (values) =>{
         console.log(values)
         try{
@@ -40,11 +41,8 @@ const App = () => {
                 <SearchBar makeSearch = {makeGetRequest}/>
                 <br></br>
                 <DisplayVideo showVideo = {displayVideo}/>
-                <DisplaySearch showSearch = {displayVideo}/>
-                <h1> Search Results </h1>
-                {videos.map((video) => {
-                    return (<h4> Video Id: {video.id.videoId} Description: {video.snippet.description} </h4>)
-                })}
+                <DisplaySearch displaySearch = {videos}/>
+                
             </div> 
         );
                 
