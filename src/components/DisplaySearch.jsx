@@ -15,7 +15,9 @@ const DisplaySearch = (props) => {
             <ul>
             
             {props.displaySearch.map((video) => {
-                return (<h4> Description: {video.snippet.description} <img src={video.snippet.thumbnails.default.url} alt="img" onClick={video.id.videoId}/> </h4>)
+                return (<h4> Title: {video.snippet.title} <br></br> 
+                            Description: {video.snippet.description} <br></br>
+                            <img src={video.snippet.thumbnails.default.url} alt="img" onClick={video.id.videoId}/> </h4>)
             })}
                 
             </ul>

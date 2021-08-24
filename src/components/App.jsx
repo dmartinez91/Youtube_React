@@ -3,6 +3,7 @@ import axios from 'axios';
 import SearchBar from './SearchBar';
 import DisplayVideo from './DisplayVideo';
 import DisplaySearch from './DisplaySearch';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 
