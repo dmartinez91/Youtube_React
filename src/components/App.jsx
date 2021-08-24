@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 import DisplayVideo from './DisplayVideo';
 import DisplaySearch from './DisplaySearch';
 import 'bootstrap/dist/css/bootstrap.css';
-import Comments from './Comments';
+
 
 
 
@@ -41,8 +41,8 @@ const App = () => {
     }
 
 
-    const makePostRequest = async (comment) => {
-        let response = await axios.post('http://127.0.0.1:8000/youtube', comment);
+    const makePostRequest = async (commentValue) => {
+        let response = await axios.post('http://127.0.0.1:8000/youtube', commentValue);
         setComments(response.data)
         console.log(response.data)
     }
