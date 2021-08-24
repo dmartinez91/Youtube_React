@@ -9,15 +9,19 @@ const DisplaySearch = (props) => {
         setShowSearch(props.displaySearch)
     },[props.displaySearch])
 
+    const handleClick = (id) => {
+        props.selectedVideoId(id)
+    }
+
     return ( 
         <div>
             
             <ul>
             
-            {props.displaySearch.map((video) => {
-                return (<h4> Title: {video.snippet.title} <br></br> 
+            {showSearch.map((video) => {
+                return (<h4> Title: {video.snippet.title}  <button onClick ={(event) => handleClick(event)} /> <br></br> 
                             Description: {video.snippet.description} <br></br>
-                            <img src={video.snippet.thumbnails.default.url} alt="img" onClick={video.id.videoId}/> </h4>)
+                            <img src={video.snippet.thumbnails.default.url} alt="img" /> </h4>)
             })}
                 
             </ul>

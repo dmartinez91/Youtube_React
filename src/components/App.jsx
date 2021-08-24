@@ -9,30 +9,34 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 
 const App = () => {
-   const [displayVideo, setDisplayVideo] = useState('x2Bq9WGMHsI')
+   const [displayVideo, setDisplayVideo] = useState('')
    const [videos, setVideos] = useState([])
     
     useEffect(() => {
         makeGetRequest();
-    }, []);
+
+    }, [displayVideo]);
 
 
 
     const makeGetRequest = async (values) =>{
         console.log(values)
         try{
-            let response = require('./sampleOutput.json') 
-            // let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${values}&key=AIzaSyCDKziCzx2dBMt7o3nTQOkpU0upTpqHT_c&part=snippet`)
-            // setDisplayVideo(response.data)
-            setVideos(response.items)
-            console.log(response.items)
+            // let response = require('./sampleOutput.json') 
+            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${values}&key=AIzaSyCDKziCzx2dBMt7o3nTQOkpU0upTpqHT_c&part=snippet`)
+            setVideos(response.data.items)
+            console.log(response.data.items)
         }
+            
         catch(ex){
             console.log(ex)
         }
     }
 
-        
+    const selectedVideoId = (id) => {
+        // updateds statevariable and the rerenders
+        setDisplayVideo(id)
+    }
     
 
         return ( 
@@ -42,7 +46,7 @@ const App = () => {
                 <SearchBar makeSearch = {makeGetRequest}/>
                 <br></br>
                 <DisplayVideo showVideo = {displayVideo}/>
-                <DisplaySearch displaySearch = {videos}/>
+                <DisplaySearch displaySearch = {videos} selectedVideoId={selectedVideoId} />
                 
             </div> 
         );
