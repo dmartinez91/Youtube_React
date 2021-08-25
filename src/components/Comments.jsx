@@ -22,6 +22,7 @@ const Comments = (props) => {
     }
 
     return ( 
+        <React.Fragment> 
         <div>
             {console.log(commentValue)}
             <form onSubmit={handleSubmit}>
@@ -53,6 +54,7 @@ const Comments = (props) => {
 
             </form>
         </div>
+        </React.Fragment>
     );
 }
         

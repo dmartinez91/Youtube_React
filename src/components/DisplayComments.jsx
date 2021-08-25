@@ -18,6 +18,7 @@ function DisplayComments() {
     }, [])
     
     return ( 
+        <React.Fragment> 
         <div>
         <form> 
         
@@ -28,6 +29,7 @@ function DisplayComments() {
         </ListGroup>
         </form>
         </div>
+        </React.Fragment>
 
      );
 }

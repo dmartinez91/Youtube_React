@@ -51,12 +51,6 @@ const App = () => {
     }
     
 
-    // const retrieveCommentRequest = async () => {
-    //     let response = await axios.get('http://127.0.0.1:8000/youtube');
-    //     setShowComment(response.data)
-    //     console.log(response.data)
-    // }
-
         return ( 
          
             <div>

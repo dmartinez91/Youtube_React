@@ -4,7 +4,7 @@ import Comments from './Comments';
 
 const DisplayVideo = (props) => {
     const videoUrl = `https://www.youtube.com/embed/${props.showVideo}`
-    
+       
     return ( 
         <div>
             <iframe title='youtube-video' id="ytplayer" type="text/html" width="640" height="360"
