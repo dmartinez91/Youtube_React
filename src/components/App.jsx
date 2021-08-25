@@ -10,6 +10,7 @@ import DisplayComments from './DisplayComments';
 
 
 
+
 const App = () => {
    const [displayVideo, setDisplayVideo] = useState('')
    const [videos, setVideos] = useState([])
@@ -54,7 +55,7 @@ const App = () => {
         return ( 
          
             <div>
-                <h1> Youtube Clone </h1>
+                <h1> Youtube Clone  </h1>
                 <SearchBar makeSearch = {makeGetRequest}/>
                 <br></br>
                 <DisplayVideo showVideo = {displayVideo} addComment = {makePostRequest} />

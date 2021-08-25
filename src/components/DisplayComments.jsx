@@ -23,8 +23,9 @@ function DisplayComments() {
         <form> 
         
         <ListGroup>
-            {
-                posts.map(post => <ListGroupItem key={post.id}>{post.comments}</ListGroupItem>)
+        <h1> comments </h1>
+            {   
+                posts.map(post => <ListGroup.Item key={post.id}>{post.comments} </ListGroup.Item>)
             }
         </ListGroup>
         </form>
