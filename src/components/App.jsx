@@ -27,9 +27,9 @@ const App = () => {
     const makeGetRequest = async (values) =>{
         console.log(values)
         try{
-            let response = require('./sampleOutput.json') 
-            //let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${values}&key=AIzaSyDPP_0jwJ7O2lH6pJKVBbNwqrs28QmH0lo&part=snippet`)
-            setVideos(response.items)
+            //let response = require('./sampleOutput.json') 
+            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${values}&key=AIzaSyDPP_0jwJ7O2lH6pJKVBbNwqrs28QmH0lo&part=snippet`)
+            setVideos(response.data.items)
             //console.log(response.items)
         }
             
@@ -64,9 +64,11 @@ const App = () => {
                 <SearchBar makeSearch = {makeGetRequest}/>
                 <br></br>
                 <DisplayVideo showVideo = {displayVideo} addComment = {makePostRequest} />
-                <DisplayComments />
+                
                 
                 <DisplaySearch displaySearch = {videos} selectedVideoId={selectedVideoId} />
+
+                <DisplayComments />
 
                
                 

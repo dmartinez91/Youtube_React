@@ -1,5 +1,6 @@
 import React from 'react';
 import {useForm} from './useForm';
+import { Button } from 'react-bootstrap';
 
 const SearchBar = (props) => {
     
@@ -13,7 +14,8 @@ const SearchBar = (props) => {
             value={values.search} 
             onChange={handleChange}
             />
-            <button type="submit">Search</button>
+            <Button type="submit" variant="secondary">Search</Button>{' '}
+           
             
             </form>
             

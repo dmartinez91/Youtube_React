@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Button} from 'react-bootstrap';
 
 const Comments = (props) => {
     
@@ -29,7 +30,9 @@ const Comments = (props) => {
                 value={commentValue}
                 onChange={handleChange}
                 />
-                <button type="submit">Comment</button>
+                
+                <Button type="submit" variant="primary">Comment</Button>{' '}
+
                 
                 <button
                 onClick={() => {
